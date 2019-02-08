@@ -1,0 +1,35 @@
+{
+  "name": "message_me",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./server/server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.12",
+    "mongoose": "^5.4.1",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "validator": "^10.10.0"
+  },
+  "scripts": {
+    "server": "nodemon server/server.js",
+    "client": "cd client/ && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "build": "cd client/ && npm build",
+    "test": "cd client/ &&  npm test",
+    "eject": "cd client/ && npm eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

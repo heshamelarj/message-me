@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import PropTypes from 'prop-types';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Link} from 'react-router-dom';
 class SignUpForm extends Component{
   render(){
     return(
@@ -53,8 +53,8 @@ const SignupLink = (props) => {
   return(
       <Router>
         <React.Fragment>
-          <div className="text-muted">
-            <p>or you can <Link to="/signup" className="text-success" onClick={!this.props.isActive}> Sign Up</Link> !</p>
+          <div className="text-muted" onClick={!props.toggleSignupForm}>
+            <p>or you can <Link to="/signup" className="text-success"> Sign Up</Link> !</p>
           </div>
           <Route path="/signup" component={SignUp}/>
         </React.Fragment>
@@ -99,8 +99,9 @@ class LoginForm extends Component {
     return classes;
   }
   render() {
+    let classes = this.handleActive(this.state.isActive).join(',');
     return (
-      <div className={this.handleActive(this.state.isActive).join(",")} >
+      <div className={classes} >
         <div className="row p-0 m-0">
           <div className="ml-auto col-md-6 col-10 mr-auto">
               <h1 className="text-center border-dark">Login</h1>
@@ -120,7 +121,7 @@ class LoginForm extends Component {
                 <button className="btn btn-outline-success btn-block" onClick={this.handleLogin}>Login</button>
                 <button className="btn btn-outline-secondary btn-block">Cancel</button>
               </div>
-              <SignupLink onClick={this.handleSignup}/>
+              <SignupLink toggleSignupForm={this.handleSignup} />
           </div>
         </div>
       </div>

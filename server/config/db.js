@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const db_name = 'message_me';
-const mongo_port = 27017;
-const server = `127.0.0.1:${mongo_port}`;
+if(process.env.NODE_ENV !== "production") require('dotenv').load();
+const host = process.env.HOST;
+const db_name = process.env.DB_NAME;
 class Database {
   constructor(){
     mongoose.Promise = global.Promise;
@@ -12,7 +12,7 @@ class Database {
     }
     _connect(){
       mongoose.connect(
-        `mongodb://${server}/${db_name}`,
+        `mongodb://${host}/${db_name}`,
         {
           useNewUrlParser: true
         },(err) => {

@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import PropTypes from 'prop-types';
 import users, {messages} from './data';
-const avatar = require('../assets/avatars/01.jpg');
+const avatar = require('../../assets/avatars/01.jpg');
 
 class UserSearch extends Component{
   state = {
@@ -39,7 +39,7 @@ class User extends Component {
     messages: []
   };
   render() {
-    const avatar = require('../assets/avatars/'+this.props.id+'.jpg');
+    const avatar = require('../../assets/avatars/'+this.props.id+'.jpg');
     return (
       <div className="py-3">
         <div className="bg-dark ">

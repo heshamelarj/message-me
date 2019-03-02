@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import  'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/font-awesome.css'
 import './assets/css/App.css';
-import App from './pages/App';
+import Auth from './pages/auth/App';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 // import UsersList from './playArround/App';
@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
                 <Router> 
-                  <App /> 
+                  <Auth /> 
                 </Router>  ,
                  document.getElementById('root'));
 

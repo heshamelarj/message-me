@@ -9,22 +9,10 @@ class LoginLink extends Component {
       isActive: true
     }
   }
-  handleClick = () => {
-    this.props.oginClicked(false);
-    this.setState({
-      isActive: false
-    })
-  }
-  hideLink = () => {
-    let classes = ['text-muted'];
-    if (this.state.isClicked) {
-      classes.push('hide');
-    }
-    return classes;
-  }
+
+
   render(){
-     let cssClasses = this.hideLink();
-     cssClasses = cssClasses.join(' ').toString();
+     let cssClasses = 'text-muted'
       return(
         <React.Fragment>
 
@@ -38,10 +26,9 @@ class LoginLink extends Component {
 }
 class SignupFormInner extends Component{
   render(){
-     let arr = this.props.cssClasses();
-     let cssClasses = arr.join(' ').toString();
+   
       return(
-          <div className={cssClasses}>  
+          <div className='grid p-0 m-0 bg-light'>  
             <div className="row p-0 m-0">
               <div className="ml-auto col-md-6 col-10 mr-auto ">
                   <h1 className="text-center border-dark">Sign up</h1>
@@ -96,18 +83,12 @@ class SignUpForm extends Component{
   handleSignup = () => {
 
   }
-  toggleSignupForm = () => {
-    let classes = ['grid p-0 m-0 bg-light'];
-    if (!this.props.isActive) {
-      classes.push('hide');
-    }
-    return classes;
-  }
+
   render(){
     return(
      <React.Fragment>
-       <SignupFormInner cssClasses={this.toggleSignupForm}/>
-       <LoginLink loginClicked={this.props.toggleSignupForm}/>
+       <SignupFormInner />
+       <LoginLink />
      </React.Fragment>
     );
   }
@@ -115,9 +96,7 @@ class SignUpForm extends Component{
 class SignUp extends Component{
   constructor(props){
     super(props);
-    this.state = {
-      isActive: false
-    }
+ 
   }
   render(){
     return(

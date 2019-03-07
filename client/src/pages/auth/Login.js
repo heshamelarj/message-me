@@ -4,25 +4,21 @@ import SignUp from './Register';
 import {Route, Link} from 'react-router-dom';
 
 
+
 //create the signup route 
-class SignupLink extends Component {
+class SignupLink extends Component {  
   state = {
     isClicked: false
   }
-  handleSignupLinkClick = () => {
-    this.setState({
-      isClicked: true
-    })
-  }
+  // static contextType = SignupContext;
+
   render(){
     let cssClasses = 'text-muted'
     return(
       <React.Fragment>
           <div className={cssClasses} >
-            <p >or you can <Link to="/signup" className="text-success" onClick={this.handleSignupLinkClick} > Sign Up</Link> !</p>
+            <p >or you can <Link to="/auth/signup" className="text-success" onClick={this.props.signupClicked} > Sign Up</Link> !</p>
           </div>
-          <Route path="/signup" component={SignUp}/>  
-         
         </React.Fragment>
   );
 }
@@ -89,7 +85,7 @@ class LoginForm extends Component {
   }
   render() {
       return(
-        <LoginFormInner handleLogin={this.handleLogin} handleEmail={this.handleEmail} handlePassword={this.handlePassword}/>
+        <LoginFormInner handleLogin={this.handleLogin} handleEmail={this.handleEmail} handlePassword={this.handlePassword} />
       )
   }
 }

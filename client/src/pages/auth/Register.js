@@ -17,9 +17,8 @@ class LoginLink extends Component {
         <React.Fragment>
 
           <div className={cssClasses}>
-          <p>or you can <Link to="/" className="text-success">login</Link> !</p>
+          <p>or you can <Link to="/auth/login" className="text-success">login</Link> !</p>
           </div>
-          <Route path="/" component={Login}/>
         </React.Fragment>
     )
   }
@@ -55,7 +54,7 @@ class SignupFormInner extends Component{
                     <button className="btn btn-outline-secondary btn-block">Cancel</button>
                   </div>
                   {/* Already has an account */}
-                  
+                 < LoginLink />          
               </div>
             </div>
           </div>
@@ -88,7 +87,6 @@ class SignUpForm extends Component{
     return(
      <React.Fragment>
        <SignupFormInner />
-       <LoginLink />
      </React.Fragment>
     );
   }

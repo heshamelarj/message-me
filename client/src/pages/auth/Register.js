@@ -1,31 +1,18 @@
 import React , {Component} from 'react';
 import PropTypes from 'prop-types';
-import {BrowserRouter as Router, Redirect, Route, Link} from 'react-router-dom';
-import Login from './Login';
-class LoginLink extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isActive: true
-    }
-  }
-
-
-  render(){
+import { Link} from 'react-router-dom';
+const LoginLink = (props) => {
      let cssClasses = 'text-muted'
       return(
         <React.Fragment>
-
           <div className={cssClasses}>
           <p>or you can <Link to="/auth/login" className="text-success">login</Link> !</p>
           </div>
         </React.Fragment>
     )
   }
-}
 class SignupFormInner extends Component{
   render(){
-   
       return(
           <div className='grid p-0 m-0 bg-light'>  
             <div className="row p-0 m-0">
@@ -54,7 +41,7 @@ class SignupFormInner extends Component{
                     <button className="btn btn-outline-secondary btn-block">Cancel</button>
                   </div>
                   {/* Already has an account */}
-                 < LoginLink />          
+                 <LoginLink />          
               </div>
             </div>
           </div>
@@ -65,12 +52,10 @@ class SignUpForm extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      user:{
         username: "",
         email: "",
         password: ""
       }
-    }
   }
 
   handleEmail = (event) => {
@@ -85,17 +70,11 @@ class SignUpForm extends Component{
 
   render(){
     return(
-     <React.Fragment>
        <SignupFormInner />
-     </React.Fragment>
     );
   }
 }
 class SignUp extends Component{
-  constructor(props){
-    super(props);
- 
-  }
   render(){
     return(
       <SignUpForm />

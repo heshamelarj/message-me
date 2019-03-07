@@ -7,16 +7,6 @@ import {Route} from 'react-router-dom';
 
 // export const SignupContext = React.createContext();
 export default class Auth extends Component{
-  state = {
-    login: true,
-    signup: false
-  };
-  handleSignupLink = () => {
-    this.setState({
-      signup: true,
-      login:false
-    })
-  };
   render(){
     return(
         <React.Fragment>

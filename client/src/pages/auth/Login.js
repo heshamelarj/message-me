@@ -1,18 +1,11 @@
 import React , {Component} from 'react';
 import PropTypes from 'prop-types';
-import SignUp from './Register';
-import {Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 
 //create the signup route 
-class SignupLink extends Component {  
-  state = {
-    isClicked: false
-  }
-  // static contextType = SignupContext;
-
-  render(){
+const SignupLink = (props) =>{  
     let cssClasses = 'text-muted'
     return(
       <React.Fragment>
@@ -22,9 +15,7 @@ class SignupLink extends Component {
         </React.Fragment>
   );
 }
-}
-class LoginFormInner extends Component{
-  render(){
+const LoginFormInner = (props) =>{
     return(
       <div className='grid p-0 m-0 bg-light' >
           <div className="row p-0 m-0">
@@ -34,16 +25,16 @@ class LoginFormInner extends Component{
                   <i className="input-group-text bg-dark text-light  mb-4">
                     email
                   </i>
-                  <input type="email" placeholder="jhondoe@gmail.com" className="form-control" onChange={this.props.handleEmail}/>  
+                  <input type="email" placeholder="jhondoe@gmail.com" className="form-control" onChange={props.handleEmail}/>  
                 </div>
                 <div className="input-group">
                   <i className="input-group-text bg-dark text-light  mb-4">
                     password
                   </i>
-                  <input type="password" placeholder="" className="form-control" onChange={this.props.handlePassword}/>  
+                  <input type="password" placeholder="" className="form-control" onChange={props.handlePassword}/>  
                 </div>
                 <div className="">
-                  <button className="btn btn-outline-success btn-block" onClick={this.props.handleLogin}>Login</button>
+                  <button className="btn btn-outline-success btn-block" onClick={props.handleLogin}>Login</button>
                   <button className="btn btn-outline-secondary btn-block">Cancel</button>
                   <SignupLink />
                 </div>
@@ -52,7 +43,6 @@ class LoginFormInner extends Component{
         </div>
     )
   }
-}
 class LoginForm extends Component {
   constructor(props){
     super(props);
@@ -74,10 +64,7 @@ class LoginForm extends Component {
    }
   handleLogin = () => {
     const email = this.state.email;
-    const password = this.state.password;
-
-    
-    
+    const password = this.state.password; 
     this.props.handleLoginClick({
       'email': email,
       'password': password

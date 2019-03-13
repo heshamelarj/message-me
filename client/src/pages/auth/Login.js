@@ -10,7 +10,7 @@ const SignupLink = (props) =>{
     return(
       <React.Fragment>
           <div className={cssClasses} >
-            <p >or you can <Link to="/auth/signup" className="text-success" onClick={this.props.signupClicked} > Sign Up</Link> !</p>
+            <p >or you can <Link to="/auth/signup" className="text-success" onClick={props.signupClicked} > Sign Up</Link> !</p>
           </div>
         </React.Fragment>
   );
@@ -78,9 +78,7 @@ class LoginForm extends Component {
 }
 
 class Login extends Component{
-  state = {
-    isSignupLinkClicked: false
-  }
+
  
   buttonLoginClick= (data) =>{ 
     console.log(data);
@@ -90,7 +88,15 @@ class Login extends Component{
       body: JSON.stringify(data),
       headers: {"Content-Type": "application/json"}
     })
-    .then(res => {console.log(res)})
+    .then(res => {
+      console.log(res);
+      
+     if(res.body.token){
+       this.props.isAuthenticated(true) ;
+       console.log('token valid');
+     }
+     ;
+    })
     .catch((err) => {throw err});
   }
 

@@ -11,8 +11,7 @@ const LoginLink = (props) => {
         </React.Fragment>
     )
   }
-class SignupFormInner extends Component{
-  render(){
+const SignupFormInner = (props) =>{
       return(
           <div className='grid p-0 m-0 bg-light'>  
             <div className="row p-0 m-0">
@@ -47,7 +46,6 @@ class SignupFormInner extends Component{
           </div>
     )
   }
-}
 class SignUpForm extends Component{
   constructor(props) {
     super(props);

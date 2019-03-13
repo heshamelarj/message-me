@@ -12,6 +12,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
                 <Router> 
                   <Auth /> 
+                  
                 </Router>  ,
                  document.getElementById('root'));
 
